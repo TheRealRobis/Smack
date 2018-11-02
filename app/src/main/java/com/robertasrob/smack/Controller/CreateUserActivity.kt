@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.robertasrob.smack.R
+import com.robertasrob.smack.Services.AuthService
 import kotlinx.android.synthetic.main.activity_create_user.*
 import java.util.*
 
@@ -35,9 +36,6 @@ class CreateUserActivity : AppCompatActivity() {
         createAvatarImageView.setImageResource(resourceId)
     }
 
-    fun createUserClicked(view: View){
-
-    }
     fun generateColorClicked(view: View){
 
         val random = Random()
@@ -53,7 +51,14 @@ class CreateUserActivity : AppCompatActivity() {
 
         avatarColor = "[$savedR, $savedG, $savedB, 1]"
 
+    }
 
+    fun createUserClicked(view: View){
+        AuthService.registerUser(this, "retasas.ruskys@gmail.com","123456"){complete ->
+            if(complete){
 
+            }
+
+        }
     }
 }
